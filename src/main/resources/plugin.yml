@@ -4,7 +4,3 @@ main: com.haru.waktaverse.Waktaverse
 api-version: 1.16
 authors: [ Haru301 ]
 description: 왁타버스 조공용 플러그인
-commands:
-  inv:
-    description: 인벤토리
-    usage: /inv [이름] [높이수] [x] [y] [z]

@@ -16,14 +16,11 @@ public class PlayerEventListener implements Listener
     public void onJoin(PlayerJoinEvent e)
     {
         Player player = e.getPlayer();
-        //player.sendMessage(player.getName() + "님 안녕하세요");
-        //e.getPlayer().setDisplayName("하루");
     }
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e)
     {
         e.setCancelled(false);
-        Player p = e.getPlayer();
     }
 }

@@ -16,28 +16,6 @@ public final class Waktaverse extends JavaPlugin
         return instance;
     }
 
-    private BossBar bossbar;
-    private int bossHealth=0;
-    private int bossDamaged=0;
-    public int getBossHealth()
-    {
-        return bossHealth;
-    }
-    public void setBossHealth(int health)
-    {
-        bossHealth=health;
-        bossDamaged=health;
-    }
-    public BossBar getBossBar()
-    {
-        return bossbar;
-    }
-    public void setBossbar(BossBar bb)
-    {
-        bossbar=bb;
-    }
-
-
     @Override
     public void onEnable()
     {
@@ -45,10 +23,6 @@ public final class Waktaverse extends JavaPlugin
         getServer().getPluginManager().registerEvents(new PlayerEventListener(), this);
         getServer().getPluginManager().registerEvents(new ServerEventListener(), this);
         getServer().getPluginManager().registerEvents(new EntityEventListener(), this);
-        //getServer().getPluginManager().registerEvents(new BlockEventListener(), this);
-        //this.getCommand("inv").setExecutor(new CustomInventory());
-        Bukkit.getConsoleSender().sendMessage("Hi!");
-        log.warning("TESTTTTTTTTTTTTTT");
 
         if (getServer().getOnlineMode())
             log.info("Server is Online Mode");
