@@ -107,27 +107,26 @@ public class EntityEventListener implements Listener
             //Bukkit.broadcastMessage(entity.getUniqueId().toString());
             ArmorStand as = (ArmorStand) world.spawnEntity(loc, EntityType.ARMOR_STAND);
             as.setInvulnerable(true);
-     //     /////  //as.setVisible(false);
+            as.setVisible(false);
             as.setCollidable(false);
             as.setSmall(true);
             as.setRemoveWhenFarAway(false);
             entity.addPassenger(as);
 
             BukkitTask task = new BukkitRunnable() {
-                //TODO java.lang.ClassCastException: class org.bukkit.Color cannot be cast to class org.bukkit.Particle$DustOptions
                 @Override
                 public void run() {
                     Location locas = as.getLocation();
                     if(as.isValid() && as.isOnGround())
                     {
-                        Bukkit.broadcastMessage("도착");
                         as.remove();
                         AreaEffectCloud cloud = (AreaEffectCloud) world.spawnEntity(locas, EntityType.AREA_EFFECT_CLOUD);
                         cloud.setRadius(2);
                         cloud.setDuration(50);
                         PotionEffect pe = new PotionEffect(PotionEffectType.POISON, 60, 0);
                         cloud.addCustomEffect(pe, false);
-                        cloud.setParticle(Particle.REDSTONE, Color.GREEN);
+                        cloud.setParticle(Particle.REDSTONE, new Particle.DustOptions(Color.GREEN, 1.0f));
+
                         this.cancel();
                     }
                 }
@@ -138,7 +137,7 @@ public class EntityEventListener implements Listener
         {
             ArmorStand as = (ArmorStand) world.spawnEntity(loc, EntityType.ARMOR_STAND);
             as.setInvulnerable(true);
-            //     /////  //as.setVisible(false);
+            as.setVisible(false);
             as.setSmall(true);
             as.setRemoveWhenFarAway(false);
             entity.addPassenger(as);
@@ -178,7 +177,6 @@ public class EntityEventListener implements Listener
                     {
                         if(ent instanceof Player)
                         {
-                            Bukkit.broadcastMessage("사라짐----------------------------");
                             world.spawnParticle(Particle.SMOKE_NORMAL, loc, 150);
                             entity.remove();
                             this.cancel();

@@ -11,7 +11,7 @@ public class ServerEventListener implements Listener
     public void onServerList(ServerListPingEvent e)
     {
         e.setMaxPlayers(20);
-        e.setMotd("test MOTD");
+        e.setMotd("Bio War");
         Bukkit.getConsoleSender().sendMessage(e.getAddress().getHostAddress());
     }
 }
