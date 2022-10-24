@@ -52,7 +52,7 @@ public class EntityEventListener implements Listener
         Location loc = e.getEntity().getLocation();
         Entity damager = e.getDamager();
         World w = damager.getWorld();
-        if(damager.getName().equals("explo"))
+        if(damager.getName().equals("explo") || damager.getName().equalsIgnoreCase("거인 좀비"))
         {
             w.createExplosion(loc,1,false,false);
             w.spawnParticle(Particle.EXPLOSION_HUGE, loc, 1);
@@ -65,7 +65,6 @@ public class EntityEventListener implements Listener
     {
         if(e.getEntityType().equals(EntityType.SHULKER))
         {
-            Bukkit.broadcastMessage("SHULKER TPED");
             e.setCancelled(true);
         }
     }
